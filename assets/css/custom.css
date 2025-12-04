@@ -2,8 +2,8 @@
 
 /* Fonts & base */
 :root{
-  --primary: #9c27b0; /* purple accent like example */
-  --accent: #ff4d8a;  /* pink accent used for CTA */
+  --primary: #9c27b0; 
+  --accent: #ff4d8a;
   --dark: #1a1a1a;
   --muted: #6c6c6c;
   --bg: #ffffff;
@@ -11,7 +11,7 @@
 
 *{box-sizing:border-box}
 body{
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   color:var(--dark);
   line-height:1.5;
 }
@@ -20,8 +20,11 @@ body{
 .header{
   background: transparent;
   transition: all .35s ease;
-  padding: 18px 0;
+  padding: 14px 0;
   z-index: 1100;
+  display:flex;
+  align-items:center;
+  justify-content: space-between; /* keeps menu aligned */
 }
 
 .header.scrolled{
@@ -30,33 +33,75 @@ body{
   box-shadow: 0 6px 22px rgba(9,9,16,0.35);
 }
 
-.logo img{height:48px}
-.sitename{color:#fff;font-weight:700;font-size:20px}
+/* LOGO FIX */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;        /* move slightly left */
+  margin-top: 4px;          /* lower it slightly */
+}
 
-/* NAV LINKS */
-#navbar ul{gap:28px}
+.logo img {
+  height: 32px !important;   /* ↓ smaller logo */
+  width: auto !important;
+}
+
+.sitename {
+  color:#fff;
+  font-weight:700;
+  font-size:18px;
+  line-height: 1.1;
+  margin-top: 6px;           /* pushes site name down */
+}
+
+/* Shift “IGC 2025” slightly below & left */
+.sitename small {
+  display:block;
+  font-size:12px;
+  opacity:0.9;
+  margin-top:-2px;
+  padding-left:2px;
+}
+
+/* NAV MENU */
+#navbar {
+  margin-right: 40px;  
+  
+}
+
+#navbar ul {
+  display:flex;
+  gap: 28px;
+  padding-left:0;
+}
+
 #navbar ul li{list-style:none}
+
 #navbar .nav-link{
   color:#fff;
   text-decoration:none;
   letter-spacing:0.6px;
   font-weight:600;
   padding:6px 4px;
-  display:inline-block;
   transition:color .25s ease;
 }
 #navbar .nav-link:hover,
-#navbar .nav-link.active{color:var(--accent)}
+#navbar .nav-link.active{
+  color:var(--accent);
+}
 
-/* mobile toggler */
+/* MOBILE */
 .mobile-nav-toggle{color:#fff;font-size:26px;cursor:pointer}
 
-/* mobile menu state */
 .navbar.navbar-mobile{
   position:fixed;inset:0;background:rgba(10,6,20,0.95);
-  display:flex;align-items:flex-start;padding-top:90px;flex-direction:column;z-index:1150;
+  display:flex;align-items:flex-start;padding-top:90px;
+  flex-direction:column;z-index:1150;
 }
-.navbar.navbar-mobile ul{flex-direction:column;gap:18px;padding-left:24px}
+.navbar.navbar-mobile ul{
+  flex-direction:column;gap:18px;padding-left:24px;
+}
 
 /* HERO SECTION */
 .hero{
@@ -65,44 +110,35 @@ body{
   display:flex;
   align-items:center;
   color:#111;
-  background-image: url('../img/hero-bg.jpg');
-  background-size:cover;
-  background-position:center;
-  overflow:hidden;
+  background-image: url('../img/geotechnical-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* semi overlay */
+/* Light overlay for text contrast */
 .hero::before{
   content:"";
-  position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.70) 50%, rgba(255,255,255,0.85) 100%);
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.15); 
   pointer-events:none;
 }
 
-/* right clipped image */
-.rounded-clip{
-  width:100%;
-  border-radius: 0;
-  clip-path: circle(45% at 95% 35%);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+/* HERO TEXT */
+.hero h1 {
+  color: #000;
+  font-weight: 900;
+  font-size: 48px;
 }
 
-/* hero left text */
-.hero-left .hero-dates{
-  color:var(--accent);
-  font-weight:700;
-  margin-bottom:10px;
+.hero h2 {
+  color: #000;
+  font-weight: 700;
+  font-size: 22px;
 }
-.hero-title{
-  font-family: "Montserrat", sans-serif;
-  font-weight:900;
-  font-size:48px;
-  letter-spacing: -1px;
-  margin-bottom:10px;
-}
-.hero-subtitle{font-size:20px;color:#222;margin-bottom:6px}
-.hero-code{font-weight:700;font-size:36px;margin-top:18px;color:#111}
 
-/* CTA buttons */
+/* CTA BUTTONS */
 .btn-register{
   background:var(--accent);
   color:#fff;
@@ -121,54 +157,16 @@ body{
   font-weight:700;
 }
 
-/* section titles */
-.section-title h3{font-weight:800;font-family:"Montserrat",sans-serif;font-size:26px}
-.section-title p{color:var(--muted)}
-
-/* cards & small styles */
-.track-card{border:1px solid #eee;border-radius:10px}
-.speaker-card img{width:110px;height:110px;object-fit:cover}
-
-/* footer */
+/* FOOTER */
 #footer{background:#12041f;color:#fff}
 .social-links a{color:#fff;opacity:0.9}
 
-/* responsive tweaks */
+/* RESPONSIVE */
 @media(max-width:991px){
   .hero{min-height:520px;padding-top:80px;padding-bottom:40px}
-  .hero-title{font-size:34px}
-  .hero-right{display:none}
+  .hero h1{font-size:34px}
 }
 @media(max-width:575px){
-  .hero-title{font-size:26px}
+  .hero h1{font-size:26px}
   #navbar ul{display:none}
-}
-
-/* FIX HERO BACKGROUND */
-#hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url("../img/hero-bg.jpg") center center / cover no-repeat;
-  overflow: hidden;
-}
-
-/* DARK OVERLAY — ONLY BACKGROUND, NOT TEXT */
-#hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);   /* Adjust 0.55 → darker/lighter */
-  z-index: 1;
-}
-
-/* BRING TEXT ABOVE OVERLAY */
-#hero .container,
-#hero h1,
-#hero h2,
-#hero p,
-#hero .btn {
-  position: relative;
-  z-index: 2;
-  color: white !important;
 }
