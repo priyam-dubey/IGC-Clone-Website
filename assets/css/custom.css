@@ -170,3 +170,104 @@ body{
   .hero h1{font-size:26px}
   #navbar ul{display:none}
 }
+/* ------------------------------
+   SPONSORSHIP SECTION
+------------------------------ */
+.sponsorship-section {
+    background: #ffffff;
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: left;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.section-subtext {
+    color: #444;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+.sponsor-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.sponsor-table thead {
+    background: #6a00a6; /* theme purple */
+    color: #fff;
+}
+
+.sponsor-table th, .sponsor-table td {
+    padding: 12px 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.sponsor-table tbody tr:hover {
+    background: #f5e8ff;
+}
+
+/* ------------------------------
+   CONTACT SECTION
+------------------------------ */
+.contact-section {
+    background: #f2e7ff;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    max-width: 600px;
+    text-align: left;
+}
+
+.contact-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact-container p {
+    font-size: 15px;
+    margin: 6px 0;
+}
+
+.contact-container a {
+    color: #6a00a6;
+    font-weight: 600;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer-section {
+    background: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 12px;
+    color: #6a00a6;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
